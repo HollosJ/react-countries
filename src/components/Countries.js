@@ -47,7 +47,7 @@ export class Countries extends Component {
         <div className="Countries">
           {this.state.isLoading === true ? (
             <Spinner />
-          ) : (
+          ) : filteredCountries.length > 0 ? (
             filteredCountries.map((c) => {
               return (
                 <CountryItem
@@ -64,6 +64,8 @@ export class Countries extends Component {
                 />
               );
             })
+          ) : (
+            <h1>No Results</h1>
           )}
         </div>
       </div>
