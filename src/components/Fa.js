@@ -4,6 +4,7 @@ import {
   faCity,
   faUsers,
   faGlobe,
+  faAngleDoubleUp,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faLanguage, faCity, faUsers, faGlobe);
+library.add(faLanguage, faCity, faUsers, faGlobe, faAngleDoubleUp);

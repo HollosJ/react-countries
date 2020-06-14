@@ -14,8 +14,17 @@
   --navy: #222831;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--white);
+}
+
+#top {
+  position: absolute;
+  top: 0;
 }
 
 /* SEARCH BAR */

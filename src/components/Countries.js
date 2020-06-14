@@ -74,18 +74,3 @@ export class Countries extends Component {
 }
 
 export default Countries;
-
-{
-  /* <div className="Countries">
-        {filtered.map((country) => (
-          <CountryItem
-            key={country.alpha3Code}
-            name={country.name}
-            flag={country.flag}
-            language={country.languages[0].name}
-            capital={country.capital}
-            population={country.population.toLocaleString()}
-          />
-        ))}
-</div> */
-}

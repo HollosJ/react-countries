@@ -1,9 +1,13 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Footer() {
   return (
     <div className="Footer">
-      <div>&copy; Copyright 2020, James Hollos</div>
+      <a href="#top">
+        <FontAwesomeIcon icon="angle-double-up" /> Back to the top{" "}
+        <FontAwesomeIcon icon="angle-double-up" />
+      </a>
       <div>
         <a href="https://restcountries.eu/" target="_blank">
           RESTCountries API

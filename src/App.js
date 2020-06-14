@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <div className="App">
-      <a name="top"></a>
+      <a name="top" id="top"></a>
       <Countries />
       <Footer />
     </div>
