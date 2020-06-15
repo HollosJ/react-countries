@@ -65,7 +65,7 @@ export class Countries extends Component {
               );
             })
           ) : (
-            <h1>No Results</h1>
+            <h1 style={{ color: "#eeeeee" }}>No Results</h1>
           )}
         </div>
       </div>
