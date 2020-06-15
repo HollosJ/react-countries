@@ -60,7 +60,8 @@ export class Countries extends Component {
                   population={c.population.toLocaleString()}
                   region={c.region}
                   subregion={c.subregion}
-                  timezone={c.timezones[0]}
+                  currency={c.currencies[0].name}
+                  currency_symbol={c.currencies[0].symbol}
                 />
               );
             })

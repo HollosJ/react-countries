@@ -36,6 +36,9 @@ function CountryItem(props) {
           &nbsp;
           {`${checkVal(props.region)}/${checkVal(props.subregion)}`}
         </p>
+        <p className="country_currency">
+          {`${props.currency_symbol} | ${props.currency}`}
+        </p>
       </div>
     </div>
   );
