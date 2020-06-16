@@ -21,6 +21,10 @@ This application allows the user to view various pieces of information about any
 - Latitude/Longitude
 - Regional Bloc(s)
 
-## License
+## Notable features
+- RESTCountries API
+- Live Search
+- Filter with multiple attributes (language/capital/currency etc) 
 
+## License
 [MIT](https://choosealicense.com/licenses/mit/)
