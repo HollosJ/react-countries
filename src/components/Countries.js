@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CountryItem from "./CountryItem";
 import Spinner from "./Spinner";
+import Counter from "./Counter";
 import axios from "axios";
 
 const url = "https://restcountries.eu/rest/v2/all/";
@@ -56,6 +57,13 @@ export class Countries extends Component {
             onChange={this.setQuery.bind(this)}
             id="search-bar"
           />
+        </div>
+        <div className="Counter">
+          {filteredCountries.length > 0 ? (
+            <Counter count={filteredCountries.length} />
+          ) : (
+            console.log("...")
+          )}
         </div>
         <div className="Countries">
           {this.state.isLoading === true ? (
