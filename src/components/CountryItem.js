@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 //Only returns value if string isn't empty
 function checkVal(val) {
-  if (val !== "") {
+  if (val !== "" && val !== null) {
     return val;
   } else {
-    return "N/A";
+    return "n/a";
   }
 }
 
@@ -34,10 +34,10 @@ function CountryItem(props) {
         <p id="country_region">
           <FontAwesomeIcon icon="globe" />
           &nbsp;
-          {`${checkVal(props.region)}/${checkVal(props.subregion)}`}
+          {`${checkVal(props.region)} | ${checkVal(props.subregion)}`}
         </p>
         <p className="country_currency">
-          {`${props.currency_symbol} | ${props.currency}`}
+          {`${checkVal(props.currency_symbol)} | ${checkVal(props.currency)}`}
         </p>
       </div>
     </div>
