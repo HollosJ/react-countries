@@ -12,10 +12,10 @@ This application allows the user to view various pieces of information about any
 - Capital
 - Language
 - Region/Subregion
+- Currency
 
 #### Future data
 
-- Currency
 - ISO Code(s)
 - Calling code
 - Latitude/Longitude
