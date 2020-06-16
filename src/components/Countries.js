@@ -16,21 +16,34 @@ export class Countries extends Component {
   componentDidMount() {
     axios.get(url).then((res) => {
       const countries = res.data;
-      console.log(countries);
       this.setState({ countries: countries });
       this.setState({ isLoading: false });
+      console.log(countries);
     });
   }
 
   setQuery(e) {
-    this.setState({ query: e.target.value.substr(0, 20) });
+    this.setState({ query: e.target.value.substr(0, 50) });
   }
 
   render() {
     let filteredCountries = this.state.countries.filter((country) => {
-      return country.name
-        .toLowerCase()
-        .includes(this.state.query.toLowerCase());
+      if (
+        country.name.toLowerCase().includes(this.state.query.toLowerCase()) ||
+        country.languages[0].name
+          .toLowerCase()
+          .includes(this.state.query.toLowerCase()) ||
+        country.currencies[0].name
+          .toLowerCase()
+          .includes(this.state.query.toLowerCase()) ||
+        country.capital
+          .toLowerCase()
+          .includes(this.state.query.toLowerCase()) ||
+        country.region.toLowerCase().includes(this.state.query.toLowerCase()) ||
+        country.subregion.toLowerCase().includes(this.state.query.toLowerCase())
+      ) {
+        return country;
+      }
     });
 
     return (
