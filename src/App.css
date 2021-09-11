@@ -106,9 +106,8 @@ body {
   width: 100%;
   margin: 0.5em;
   padding: 1em;
-  border-radius: 1em;
+  border-radius: 0.25em;
   position: relative;
-  border: 0.2em solid var(--white);
 
   animation-name: pop-in;
   animation-duration: 0.5s;
@@ -131,13 +130,12 @@ body {
 }
 .Country #country_flag {
   max-width: 100%;
-  border: 0.2em solid var(--navy);
-  border-radius: 1em;
+  border-radius: 0.25em;
   margin: 1em 0;
 }
 .Country #country_data {
   background-color: var(--navy);
-  border-radius: 0.3em;
+  border-radius: 0.25em;
   color: var(--white);
   width: 100%;
   display: flex;
