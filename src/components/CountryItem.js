@@ -3,11 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 //Only returns value if string isn't empty
 function checkVal(val) {
-  if (val !== "" && val !== null) {
-    return val;
-  } else {
-    return "n/a";
-  }
+  return val !== "" && val !== null ?  val : "n/a"
 }
 
 function CountryItem(props) {
@@ -17,27 +13,28 @@ function CountryItem(props) {
       <img id="country_flag" src={props.flag} alt="FLAG" />
       <div id="country_data">
         <p id="country_language">
-          <FontAwesomeIcon icon="language" />
+          <FontAwesomeIcon className="country_data-icon" icon="language" />
           &nbsp;
           {checkVal(props.language)}
         </p>
         <p id="country_capital">
-          <FontAwesomeIcon icon="city" />
+          <FontAwesomeIcon className="country_data-icon" icon="city" />
           &nbsp;
           {checkVal(props.capital)}
         </p>
         <p id="country_population">
-          <FontAwesomeIcon icon="users" />
+          <FontAwesomeIcon className="country_data-icon" icon="users" />
           &nbsp;
           {checkVal(props.population)}
         </p>
         <p id="country_region">
-          <FontAwesomeIcon icon="globe" />
+          <FontAwesomeIcon className="country_data-icon" icon="globe" />
           &nbsp;
           {`${checkVal(props.region)} | ${checkVal(props.subregion)}`}
         </p>
         <p className="country_currency">
-          {`${checkVal(props.currency_symbol)} | ${checkVal(props.currency)}`}
+          <span className="country_data-icon">{checkVal(props.currency_symbol)}</span>
+          {` | ${checkVal(props.currency)}`}
         </p>
       </div>
     </div>
