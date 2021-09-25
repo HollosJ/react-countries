@@ -30,7 +30,7 @@ function CountryItem(props) {
         <p id="country_region">
           <FontAwesomeIcon className="country_data-icon" icon="globe" />
           &nbsp;
-          {`${checkVal(props.region)} | ${checkVal(props.subregion)}`}
+          {`${checkVal(props.capital)} | ${checkVal(props.region)}`}
         </p>
         <p className="country_currency">
           <span className="country_data-icon">{checkVal(props.currency_symbol)}</span>

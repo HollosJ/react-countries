@@ -45,7 +45,7 @@ const Countries = () => {
             />
         </div>
 
-        <Counter className="Counter" count={filteredCountries.length}/>
+        <Counter count={filteredCountries.length}/>
         
         <div className="Countries">
             {loading ? (<Spinner />) : 
