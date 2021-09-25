@@ -61,7 +61,7 @@ body {
   width: 5em;
   border-radius: 50%;
   border: 6px solid;
-  border-color: var(--blue) transparent transparent;
+  border-color: var(--white) transparent transparent;
   animation: spinner 0.7s linear infinite;
   margin-top: 3em;
 }
