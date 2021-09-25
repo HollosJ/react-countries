@@ -1,98 +1,73 @@
-import React, { Component } from "react";
+import React, {useState, useEffect} from 'react'
 import CountryItem from "./CountryItem";
 import Spinner from "./Spinner";
 import Counter from "./Counter";
-import axios from "axios";
+import data from "../data"
 
-const url = "https://restcountries.eu/rest/v2/all/";
+const Countries = () => {
 
-export class Countries extends Component {
-  state = {
-    countries: [],
-    isLoading: true,
-    query: "",
-  };
+    //setting state
+    const [loading, setLoading] = useState(true)
+    const [countries, setCountries] = useState([]);
+    const [query, setQuery] = useState("");
 
-  //use axios to call api
-  componentDidMount() {
-    axios.get(url).then((res) => {
-      const countries = res.data;
-      this.setState({ countries: countries });
-      this.setState({ isLoading: false });
-      console.log(countries);
-    });
-  }
+    //on page load, set data to data.js file
+    useEffect(() => {
+        setCountries(data)
+        setLoading(false)
+    }, []);
 
-  setQuery(e) {
-    this.setState({ query: e.target.value.substr(0, 50) });
-  }
+    //handle live search queries
+    const handleQuery = (q) => {
+        setQuery(q.target.value)
+    }
 
-  render() {
-    let filteredCountries = this.state.countries.filter((country) => {
-      if (
-        country.name.toLowerCase().includes(this.state.query.toLowerCase()) ||
-        country.languages[0].name
-          .toLowerCase()
-          .includes(this.state.query.toLowerCase()) ||
-        country.currencies[0].name
-          .toLowerCase()
-          .includes(this.state.query.toLowerCase()) ||
-        country.capital
-          .toLowerCase()
-          .includes(this.state.query.toLowerCase()) ||
-        country.region.toLowerCase().includes(this.state.query.toLowerCase()) ||
-        country.subregion.toLowerCase().includes(this.state.query.toLowerCase())
-      ) {
-        return country;
-      }
-    });
+    //filter countries based on search query
+    let filteredCountries = (countries.filter(c => {
+        let q = query.toLowerCase()
+        if(c.name.toLowerCase().includes(q) ||
+        c.languages[0].name.toLowerCase().includes(q) ||
+        c.capital.toLowerCase().includes(q) ||
+        c.continent.toLowerCase().includes(q) ||
+        c.currencies[0].name.toLowerCase().includes(q)){
+            return c
+        }
+    }))
 
-    return (
-      <div>
+    return <>
         <div className="Search">
-          <input
-            type="text"
-            placeholder={"Search..."}
-            value={this.state.query}
-            onChange={this.setQuery.bind(this)}
-            id="search-bar"
-          />
+            <input
+                type="text"
+                placeholder={"Search..."}
+                value={query}
+                onChange={handleQuery}
+                id="search-bar"
+            />
         </div>
-        <div className="Counter">
-          {filteredCountries.length > 0 ? (
-            <Counter count={filteredCountries.length} />
-          ) : (
-            console.log("...")
-          )}
-        </div>
+
+        <Counter className="Counter" count={filteredCountries.length}/>
+        
         <div className="Countries">
-          {this.state.isLoading === true ? (
-            <Spinner />
-          ) : filteredCountries.length > 0 ? (
-            filteredCountries.map((c) => {
-              return (
-                <CountryItem
-                  key={c.alpha2Code}
-                  name={c.name}
-                  nativeName={c.nativeName}
-                  flag={c.flag}
-                  language={c.languages[0].name}
-                  capital={c.capital}
-                  population={c.population.toLocaleString()}
-                  region={c.region}
-                  subregion={c.subregion}
-                  currency={c.currencies[0].name}
-                  currency_symbol={c.currencies[0].symbol}
-                />
-              );
-            })
-          ) : (
-            <h1 style={{ color: "#eeeeee" }}>No Results</h1>
-          )}
+            {loading ? (<Spinner />) : 
+            filteredCountries.length > 0 ? (
+                filteredCountries.map((c, k) => {
+                    return <CountryItem
+                    key={k}
+                    name={c.name}
+                    flag={c.flags[1]}
+                    language={c.languages[0].name}
+                    capital={c.capital}
+                    population={c.population.toLocaleString()}
+                    currency={c.currencies[0].name}
+                    currency_symbol={c.currencies[0].symbol}
+                    continent={c.continent}
+                    region={c.region}
+                    />
+                }) 
+            ) :  <h1 style={{ color: "#eeeeee" }}>No Results</h1>
+            }
         </div>
-      </div>
-    );
-  }
+    </>
 }
 
-export default Countries;
+export default Countries
