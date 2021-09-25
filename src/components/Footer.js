@@ -9,7 +9,7 @@ export default function Footer() {
         <FontAwesomeIcon icon="angle-double-up" />
       </a>
       <div>
-        <a href="https://restcountries.eu/" target="_blank">
+        <a href="https://restcountries.com/" target="_blank">
           RESTCountries API
         </a>
       </div>
