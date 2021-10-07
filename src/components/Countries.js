@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import CountryItem from "./CountryItem";
 import Spinner from "./Spinner";
-import Counter from "./Counter";
 
 const Countries = () => {
 
@@ -63,8 +62,6 @@ const Countries = () => {
             />
         </div>
 
-        <Counter count={filteredCountries.length}/>
-        
         <div className="Countries">
             {loading ? (<Spinner />) : 
             filteredCountries.length > 0 ? (

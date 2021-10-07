@@ -72,19 +72,6 @@ body {
   }
 }
 
-/* COUNTER */
-.Counter {
-  font-size: 1em;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 0;
-  z-index: 100;
-  color: var(--blue);
-  padding: 0.3em;
-}
-
 /* COUNTRY CARDS WRAPPER */
 .Countries {
   width: 100%;
