@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import CountryItem from "./CountryItem";
 import Spinner from "./Spinner";
 import Counter from "./Counter";
-import data from "../data"
 
 const Countries = () => {
 
