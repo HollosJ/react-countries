@@ -59,6 +59,7 @@ const Countries = () => {
                 value={query}
                 onChange={handleQuery}
                 id="search-bar"
+                spellCheck={false}
             />
         </div>
 
